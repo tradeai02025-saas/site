@@ -1,0 +1,128 @@
+.stat-inline.active {
+    background: #d97706;
+}
+
+.search-box {
+    max-width: 500px;
+}
+
+.search-input:focus {
+    border-color: #d97706;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+}
+
+.search-loading {
+    color: #d97706;
+}
+
+.clear-filters-link {
+    color: #d97706;
+}
+
+.cnpj-info {
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+}
+
+.contact-item i {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.fornecedores-btn-empty {
+    background: #d97706;
+    color: white;
+}
+
+.fornecedores-btn-empty:hover {
+    background: #b45309;
+    color: white;
+    box-shadow: 0 6px 16px rgba(217, 119, 6, 0.3);
+}
+
+[data-theme="dark"] .stat-inline.active {
+    background: #b45309;
+}
+
+[data-theme="dark"] .stat-inline:hover {
+    background: rgba(245, 158, 11, 0.1);
+}
+
+[data-theme="dark"] .search-input:focus {
+    border-color: #fbbf24;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+[data-theme="dark"] .search-loading {
+    color: #fbbf24;
+}
+
+[data-theme="dark"] .clear-filters-link {
+    color: #fbbf24;
+}
+
+[data-theme="dark"] .fornecedores-data-table thead {
+    background: rgba(245, 158, 11, 0.08);
+}
+
+[data-theme="dark"] .fornecedores-table-row:hover {
+    background: rgba(245, 158, 11, 0.04);
+}
+
+[data-theme="dark"] .filter-tag {
+    background: var(--bg-card);
+}
+
+[data-theme="dark"] .active-filters-strip {
+    background: rgba(245, 158, 11, 0.08);
+}
+
+[data-theme="dark"] .fornecedores-btn-empty {
+    background: #b45309;
+}
+
+[data-theme="dark"] .fornecedores-btn-empty:hover {
+    background: #92400e;
+}
+
+@media (max-width: 992px) {
+    .search-box {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        gap: 0.25rem;
+    }
+    .contact-item {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-item {
+        font-size: 0.75rem;
+    }
+
+    .cnpj-info {
+        font-size: 0.8125rem;
+    }
+}
