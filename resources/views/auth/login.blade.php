@@ -1218,7 +1218,7 @@
         <div class="login-card">
             <div class="login-header">
                 <div class="logo-container">
-                    <img src="{{ asset('img/logo-dark.png') }}" alt="Logo do Sistema" class="logo-image" id="logoImage">
+                    <img src="{{ asset('assets/img/logo-header.png') }}" alt="IArandú" class="logo-image" id="logoImage">
                 </div>
                 <h1 class="login-title">Bem-vindo de volta!</h1>
                 <p class="login-subtitle">Faça login para acessar o sistema</p>

@@ -24,7 +24,7 @@
         <header class="site-nav" id="siteNav">
             <div class="site-nav-inner">
                 <a href="/" class="site-nav-logo" aria-label="IArandú — início">
-                    <img src="{{ asset('assets/') }}/img/logo-dark.png" alt="IArandú">
+                    <img src="{{ asset('assets/img/logo-header.png') }}" alt="IArandú">
                 </a>
 
                 <button class="site-nav-toggle" type="button" id="siteNavToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="siteNavLinks">
@@ -1667,7 +1667,7 @@
         <footer class="site-footer">
             <div class="site-footer-inner">
                 <div class="site-footer-logo">
-                    <img src="{{ asset('assets/') }}/img/logo-dark.png" alt="IArandú">
+                    <img src="{{ asset('assets/img/logo-footer.png') }}" alt="IArandú">
                 </div>
                 <div class="site-footer-links">
                     
