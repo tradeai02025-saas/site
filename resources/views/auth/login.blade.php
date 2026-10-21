@@ -1296,6 +1296,13 @@
                         <span>Esqueceu sua senha?</span>
                     </a>
                 </div>
+
+                <div style="text-align: center; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--input-border);">
+                    <a href="{{ route('home') }}" style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--primary-color); text-decoration: none; transition: all 0.2s;">
+                        <i class="bi bi-arrow-left"></i>
+                        <span>Voltar ao site · Ver Planos & Preços</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

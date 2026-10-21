@@ -4,7 +4,7 @@
 
 return [
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'IArandú'),
 
     'env' => env('APP_ENV', 'production'),
 
