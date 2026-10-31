@@ -1218,7 +1218,7 @@
         <div class="login-card">
             <div class="login-header">
                 <div class="logo-container">
-                    <img src="{{ asset('img/logo-dark.png') }}" alt="Logo do Sistema" class="logo-image" id="logoImage">
+                    <img src="{{ asset('assets/img/logo-header.png') }}" alt="IArandú" class="logo-image" id="logoImage">
                 </div>
                 <h1 class="login-title">Bem-vindo de volta!</h1>
                 <p class="login-subtitle">Faça login para acessar o sistema</p>
@@ -1294,6 +1294,13 @@
                     <a href="{{ route('password.request') }}">
                         <i class="bi bi-question-circle"></i>
                         <span>Esqueceu sua senha?</span>
+                    </a>
+                </div>
+
+                <div style="text-align: center; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--input-border);">
+                    <a href="{{ route('home') }}" style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--primary-color); text-decoration: none; transition: all 0.2s;">
+                        <i class="bi bi-arrow-left"></i>
+                        <span>Voltar ao site · Ver Planos & Preços</span>
                     </a>
                 </div>
             </div>

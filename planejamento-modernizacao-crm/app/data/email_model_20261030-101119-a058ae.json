@@ -1,0 +1,6 @@
+{
+  "version": "email-v1",
+  "email": "{Olá, time da|Olá, equipe da|Olá, pessoal da} {empresa},\n\nSomos da IArandú Tecnologia (www.iarandu.com.br).\n\n{A IArandú desenvolve tecnologia para apoiar agências nas rotinas de checking de mídia, conciliação de PIs e organização de comprovantes.|Nossa plataforma reúne recursos para apoiar as equipes de mídia e financeiro no checking de veiculações, na conciliação de PIs e na organização de comprovantes.|Estamos apresentando o IArandú e seus recursos para as rotinas de mídia, checking de veiculações, conciliação de PIs e organização de comprovantes.}\n\n{Quem seria a pessoa responsável pelo checking, mídia ou financeiro com quem poderíamos agendar uma breve reunião?|Podemos agendar uma conversa rápida com o responsável pelo checking, mídia ou financeiro para demonstrar como nossa plataforma funciona?|Qual seria o melhor contato para agendarmos uma demonstração de 15 minutos com a equipe de checking, mídia ou financeiro?}\n\n{Obrigado pela atenção e bom trabalho a toda a equipe.|Agradecemos o tempo de vocês. Um ótimo dia para a equipe!|Obrigado, time. Ficamos à disposição para enviar mais informações.}",
+  "email_subject": "IArandú Tecnologia — conciliação e comprovação de mídia | {empresa}",
+  "model_hash": "d0591a144014c9ad0c2de2d76ec3045f86fc5d5e23dd87c3ab4fa86b5cd5e32c"
+}

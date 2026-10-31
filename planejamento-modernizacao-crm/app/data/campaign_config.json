@@ -1,0 +1,33 @@
+{
+  "schedule": {
+    "enabled": true,
+    "weekdays": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "times": {
+      "email": "08:00",
+      "instagram": "08:05",
+      "whatsapp": "08:02"
+    }
+  },
+  "daily_targets": {
+    "email": 60,
+    "whatsapp": 10,
+    "instagram_5050": 50,
+    "instagram_5051": 50
+  },
+  "delays": {
+    "email_min": 120,
+    "email_max": 180,
+    "whatsapp_min": 120,
+    "whatsapp_max": 240,
+    "instagram_5050_min": 90,
+    "instagram_5050_max": 180,
+    "instagram_5051_min": 150,
+    "instagram_5051_max": 300
+  }
+}

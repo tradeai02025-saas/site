@@ -22,6 +22,17 @@ use Illuminate\Support\Facades\Route;
 Route::post('/api/telegram/webhook/{token}', [TelegramWebhookController::class, 'handle'])
     ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class]);
 
+Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect()->route('dashboard');
+    }
+    return view('landing');
+})->name('home');
+
+Route::get('/planos', function () {
+    return view('landing');
+})->name('planos');
+
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:5,1');
@@ -35,8 +46,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth', 'check.temporary.password')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::post('/validar-cnpj', function (Request $request) {
         $cnpjLimpo = preg_replace('/[^0-9]/', '', $request->input('cnpj', ''));

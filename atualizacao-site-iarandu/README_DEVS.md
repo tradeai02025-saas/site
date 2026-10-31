@@ -5,8 +5,6 @@
 > **Data:** 21 de Outubro de 2026  
 > **Objetivo:** Implementar a nova estratégia comercial de retenção e expansão de agências de publicidade do Paraná com contratos públicos.
 
-> **Estado da entrega:** esta pasta está disponível na branch `main` para revisão técnica. A página e as rotas executáveis estão na branch `feature/planos-e-precos`. Nenhuma alteração foi publicada em servidor por esta entrega; acesso à Hostinger não é necessário para revisar os arquivos.
-
 ---
 
 ## 1. Contexto de Negócio & Decisão Estratégica
@@ -45,9 +43,9 @@ atualizacao-site-iarandu/
 
 ---
 
-## 3. O que está integrado na branch `feature/planos-e-precos`
+## 3. O que já está integrado no código-fonte principal
 
-Além da cópia isolada nesta pasta, os arquivos foram posicionados nos locais adequados da aplicação Laravel na branch `feature/planos-e-precos` para testes locais. A branch `main` contém somente esta pasta de entrega até que a integração seja revisada e aprovada:
+Além do backup isolado nesta pasta, os arquivos já foram posicionados nos locais adequados da aplicação Laravel para testes locais imediatos:
 
 | Arquivo no Projeto | O que foi feito |
 |---|---|
@@ -62,7 +60,7 @@ Além da cópia isolada nesta pasta, os arquivos foram posicionados nos locais a
 
 ## 4. Como Rodar e Testar Localmente
 
-Para validar a página executável, faça checkout da branch `feature/planos-e-precos` antes dos comandos abaixo. A pasta isolada na `main` serve para revisão e não altera as rotas do projeto nessa branch.
+Para validar o funcionamento em qualquer máquina:
 
 ```bash
 # 1. Instalar dependências (caso seja clonado do zero)
@@ -85,6 +83,17 @@ Acesse:
 
 ---
 
-## 5. Próxima etapa de integração
+## 5. Como Subir para Produção (VPS Nginx)
 
-Após a revisão do desenvolvedor e a aprovação do Diego, integrar os arquivos da branch `feature/planos-e-precos` à aplicação, validar a página no ambiente de destino e seguir o procedimento de publicação da equipe. Esta pasta não identifica nem altera a hospedagem de produção.
+Quando aprovado pelo Diego:
+1. Fazer o merge da branch `feature/planos-e-precos` (ou copiar os arquivos desta pasta) para a branch `main`.
+2. Na VPS de produção:
+   ```bash
+   git pull origin main
+   php artisan view:clear
+   php artisan route:clear
+   php artisan config:cache
+   php artisan route:cache
+   php artisan view:cache
+   ```
+3. Nenhuma alteração de DNS no **Registro.br** é necessária, pois os apontamentos já respondem diretamente na VPS.

@@ -1,0 +1,57 @@
+[
+  {
+    "cnpj": "18351226000100",
+    "nome": "Oro Comunicação",
+    "municipio": "Belo Horizonte",
+    "uf": "MG",
+    "email": "hello@readymag.com",
+    "dono_nome": "Anderson De Franca Campos",
+    "website": "http://www.oro.ag",
+    "fonte": "Sinapro-MG",
+    "valor_contratos": 147000000.0
+  },
+  {
+    "cnpj": "16103988000154",
+    "nome": "IDEIA 3 COMUNICAÇÃO",
+    "municipio": "São Paulo",
+    "uf": "SP",
+    "email": "novosnegocios@ideia3.com.br",
+    "dono_nome": "Eduardo Santos Da Silva",
+    "website": "https://ideia3.com.br",
+    "fonte": "Sinapro-SP",
+    "valor_contratos": 120000000.0
+  },
+  {
+    "cnpj": "10836026000128",
+    "nome": "Casa Comunicação",
+    "municipio": "Recife",
+    "uf": "PE",
+    "email": "contato@taemcasa.com.br",
+    "dono_nome": "Ricardo Rique",
+    "website": "https://taemcasa.com.br",
+    "fonte": "Sinapro-PE",
+    "valor_contratos": 80000000.0
+  },
+  {
+    "cnpj": "01187307000106",
+    "nome": "18 Comunicação",
+    "municipio": "",
+    "uf": "BR",
+    "email": "antoniocarlos@18net.com.br",
+    "dono_nome": "Helvecio Flores Silva",
+    "website": "https://www.18net.com.br",
+    "fonte": "ABAP Nacional",
+    "valor_contratos": 48400000.0
+  },
+  {
+    "cnpj": "05286707000472",
+    "nome": "Bts Comunicacao",
+    "municipio": "Salvador",
+    "uf": "BA",
+    "email": "contato@bts.ag",
+    "dono_nome": "BTS COMUNICAÇÃO",
+    "website": "https://www.boxcomunicacao.com.br/",
+    "fonte": "Sinapro-BA",
+    "valor_contratos": 25600000.0
+  }
+]

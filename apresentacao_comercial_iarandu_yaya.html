@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IArandú Tecnologia — Apresentação Executiva & Proposta Comercial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --card-border: rgba(71, 85, 105, 0.4);
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.15);
+      --blue: #3b82f6;
+      --blue-glow: rgba(59, 130, 246, 0.2);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      user-select: none;
+    }
+
+    /* Ambient background lights */
+    .ambient-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .ambient-glow-2 {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+      bottom: -150px;
+      left: -100px;
+      filter: blur(90px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Slides container */
+    .presentation-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      padding: clamp(24px, 4.5vh, 48px) clamp(28px, 6vw, 80px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(16px);
+      overflow: hidden;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    /* Header component */
+    .slide-header {
+      flex-shrink: 0;
+      margin-bottom: clamp(12px, 2.5vh, 24px);
+    }
+
+    .category-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: clamp(11px, 1.4vh, 12px);
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+
+    .slide-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(24px, 4.2vh, 40px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .slide-subtitle {
+      font-size: clamp(13px, 1.9vh, 16px);
+      color: var(--muted);
+      margin-top: 6px;
+      max-width: 900px;
+      line-height: 1.5;
+    }
+
+    /* Content Area */
+    .slide-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+
+    /* Cards Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(14px, 2.5vw, 24px);
+      width: 100%;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(12px, 2vw, 20px);
+      width: 100%;
+    }
+
+    .grid-2-unequal {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: clamp(16px, 3vw, 32px);
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: clamp(16px, 2.8vh, 28px);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(245, 158, 11, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .card-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(22px, 3.8vh, 32px);
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: clamp(15px, 2.2vh, 18px);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      font-size: clamp(12px, 1.7vh, 14px);
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .card-timing {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue);
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      padding: 3px 8px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      width: fit-content;
+    }
+
+    /* List inside cards */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: clamp(13px, 1.8vh, 14px);
+      color: #e2e8f0;
+      line-height: 1.45;
+    }
+
+    .check-icon {
+      color: var(--gold);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* Big Price Highlight */
+    .price-box {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+      border: 1px solid var(--gold);
+      border-radius: 18px;
+      padding: clamp(20px, 3.5vh, 32px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.2);
+    }
+
+    .price-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(38px, 6.5vh, 56px);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      margin: 12px 0 6px;
+    }
+
+    /* Footer Navigation & Progress */
+    .slide-footer {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: clamp(10px, 2vh, 18px);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: clamp(11px, 1.5vh, 12px);
+      color: var(--muted);
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: var(--gold);
+      color: #0b1120;
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--blue));
+      transition: width 0.3s ease;
+      z-index: 100;
+    }
+
+    /* Print and export styles */
+    @media print {
+      body {
+        overflow: visible;
+        height: auto;
+      }
+      .slide {
+        position: relative;
+        page-break-after: always;
+        height: 100vh;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+      }
+      .nav-controls, .ambient-glow, .ambient-glow-2 {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar" style="width: 16.66%;"></div>
+  <div class="ambient-glow"></div>
+  <div class="ambient-glow-2"></div>
+
+  <div class="presentation-container">
+    <!-- SLIDE 1: CAPA -->
+    <div class="slide active" data-slide="1">
+      <div class="slide-header">
+        <div class="category-badge">Apresentação Executiva &amp; Proposta Comercial</div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 6px;">IARANDÚ TECNOLOGIA · PLANO ESSENCIAL</div>
+      </div>
+      <div class="slide-content">
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(34px, 5.8vh, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 16px;">
+          A operação de mídia da sua agência:<br>
+          <span style="color: var(--gold);">do PI ao pagamento.</span>
+        </h1>
+        <p style="font-size: clamp(15px, 2.3vh, 18px); color: #cbd5e1; max-width: 820px; line-height: 1.6; margin-bottom: 28px;">
+          Proposta sob medida desenvolvida para <strong>Leandro Pereira</strong> e equipe da <strong>Yaya Comunicação</strong>.
+          Elimine o retrabalho manual, mitigue riscos de glosa e integre mídia, checking e financeiro em uma esteira única 100% auditável.
+        </p>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 10px 18px; border-radius: 10px; font-size: 13px;">
+            🏢 <strong>Agência:</strong> Yaya Comunicação (Salvador / BA)
+          </div>
+          <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 10px 18px; border-radius: 10px; font-size: 13px;">
+            👤 <strong>A/C:</strong> Leandro Pereira (Sócio-Administrador)
+          </div>
+          <div style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); padding: 10px 18px; border-radius: 10px; font-size: 13px; color: var(--gold);">
+            ⚡ <strong>Plano:</strong> Essencial (Implantação Conduzida)
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div>IArandú Tecnologia · demonstracao.iarandu.com.br</div>
+        <div class="nav-controls">
+          <span>Slide 1 de 6</span>
+          <button class="nav-btn" onclick="prevSlide()">❮</button>
+          <button class="nav-btn" onclick="nextSlide()">❯</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: OS 3 PILARES -->
+    <div class="slide" data-slide="2">
+      <div class="slide-header">
+        <div class="category-badge">Arquitetura de Valor</div>
+        <h2 class="slide-title">Tecnologia Sob Medida: 3 Pilares Fundamentais</h2>
+        <p class="slide-subtitle">A IArandú parte de uma base já validada em operação real e adapta fluxos, regras e telas à realidade da agência.</p>
+      </div>
+      <div class="slide-content">
+        <div class="grid-3">
+          <div class="glass-card">
+            <div class="card-num">01</div>
+            <div class="card-title">Menos Risco</div>
+            <div class="card-text">
+              PIs, documentos e responsáveis com histórico 100% auditável e status em tempo real. Governança rígida contra glosas, inconsistências fiscais e erros de faturamento com veículos.
+            </div>
+          </div>
+          <div class="glass-card">
+            <div class="card-num">02</div>
+            <div class="card-title">Mais Velocidade</div>
+            <div class="card-text">
+              Validação documental ágil, alertas automáticos de vencimento e comunicação contextual por PI no mesmo fluxo, eliminando mais de 70% do tempo gasto em conferências manuais.
+            </div>
+          </div>
+          <div class="glass-card">
+            <div class="card-num">03</div>
+            <div class="card-title">Sob Medida</div>
+            <div class="card-text">
+              A tecnologia se molda à operação da Yaya Comunicação — não o contrário. Etapas de aprovação, formulários, alertas e interfaces personalizados para a equipe.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div>Pedidos de Inserção, fornecedores, documentos, veiculação e comunicação reunidos em um só lugar.</div>
+        <div class="nav-controls">
+          <span>Slide 2 de 6</span>
+          <button class="nav-btn" onclick="prevSlide()">❮</button>
+          <button class="nav-btn" onclick="nextSlide()">❯</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: O QUE O PLANO CENTRALIZA -->
+    <div class="slide" data-slide="3">
+      <div class="slide-header">
+        <div class="category-badge">Funcionalidades Centrais</div>
+        <h2 class="slide-title">O Que o Plano Essencial Centraliza</h2>
+        <p class="slide-subtitle">Uma suíte completa para unificar as rotinas de mídia, checking de veiculações e liquidação financeira.</p>
+      </div>
+      <div class="slide-content">
+        <div class="grid-3" style="margin-bottom: 16px;">
+          <div class="glass-card" style="padding: 16px 20px;">
+            <div style="font-weight: 700; color: #fff; font-size: 15px; margin-bottom: 6px;">📋 Gestão Completa de PIs</div>
+            <div class="card-text">Controle integral de Pedidos de Inserção: emissão, alteração, cancelamento e tracking de veiculações.</div>
+          </div>
+          <div class="glass-card" style="padding: 16px 20px;">
+            <div style="font-weight: 700; color: #fff; font-size: 15px; margin-bottom: 6px;">🏢 Cadastro Unificado</div>
+            <div class="card-text">Base centralizada de clientes, fornecedores de mídia, emissoras de rádio/TV, portais e representantes.</div>
+          </div>
+          <div class="glass-card" style="padding: 16px 20px;">
+            <div style="font-weight: 700; color: #fff; font-size: 15px; margin-bottom: 6px;">📑 Validação Documental</div>
+            <div class="card-text">Conferência de comprovantes de exibição, notas fiscais e relatórios com controle de vencimentos e alertas.</div>
+          </div>
+          <div class="glass-card" style="padding: 16px 20px;">
+            <div style="font-weight: 700; color: #fff; font-size: 15px; margin-bottom: 6px;">👥 Perfis por Função</div>
+            <div class="card-text">Níveis de acesso e visibilidade desenhados por responsabilidade: Mídia, Tráfego, Financeiro e Diretoria.</div>
+          </div>
+          <div class="glass-card" style="padding: 16px 20px;">
+            <div style="font-weight: 700; color: #fff; font-size: 15px; margin-bottom: 6px;">💬 Comunicação Vinculada</div>
+            <div class="card-text">Histórico de alinhamentos, orientações e aprovações registrado de forma inseparável a cada PI.</div>
+          </div>
+          <div class="glass-card" style="padding: 16px 20px;">
+            <div style="font-weight: 700; color: #fff; font-size: 15px; margin-bottom: 6px;">🔍 Monitoramento Técnico</div>
+            <div class="card-text">Notificações em tempo real, segurança de dados em nuvem e suporte técnico especializado.</div>
+          </div>
+        </div>
+        <div style="background: rgba(30, 41, 59, 0.9); border: 1px solid var(--blue); border-radius: 12px; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="font-size: 13px; color: #f8fafc;">
+            ⭐ <strong>BASE VALIDADA NA TRADE MARKETING:</strong> Uma operação de mídia real já centralizada, com governança diária e evolução contínua.
+          </div>
+          <span style="font-size: 11px; font-weight: 700; color: var(--blue); background: rgba(59,130,246,0.15); padding: 4px 10px; border-radius: 12px;">PRODUÇÃO REAL</span>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div>IArandú Tecnologia · Mídia, Checking e Backoffice</div>
+        <div class="nav-controls">
+          <span>Slide 3 de 6</span>
+          <button class="nav-btn" onclick="prevSlide()">❮</button>
+          <button class="nav-btn" onclick="nextSlide()">❯</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: ESCOPO E IMPLANTAÇÃO -->
+    <div class="slide" data-slide="4">
+      <div class="slide-header">
+        <div class="category-badge">Metodologia Ágil</div>
+        <h2 class="slide-title">Escopo e Implantação Conduzida</h2>
+        <p class="slide-subtitle">Uma implantação estruturada, sem começar do zero — entregue em semanas, não meses.</p>
+      </div>
+      <div class="slide-content">
+        <div class="grid-4">
+          <div class="glass-card">
+            <div class="card-num">01</div>
+            <div class="card-timing">1 A 2 SEMANAS</div>
+            <div class="card-title">Entender</div>
+            <div class="card-text">
+              Mapeamento detalhado dos fluxos atuais da Yaya Comunicação, papéis de equipe, regras de negócio e integrações necessárias.
+            </div>
+          </div>
+          <div class="glass-card">
+            <div class="card-num">02</div>
+            <div class="card-timing">CICLOS SEMANAIS</div>
+            <div class="card-title">Adaptar</div>
+            <div class="card-text">
+              Configuração sob medida da plataforma, ajuste de telas, regras de conciliação e fluxos de aprovação com validação direta da agência.
+            </div>
+          </div>
+          <div class="glass-card">
+            <div class="card-num">03</div>
+            <div class="card-timing">SEMANAS, NÃO MESES</div>
+            <div class="card-title">Implantar</div>
+            <div class="card-text">
+              Migração assistida dos dados definidos no escopo, disponibilização de ambiente de homologação e treinamento prático de toda a equipe.
+            </div>
+          </div>
+          <div class="glass-card">
+            <div class="card-num">04</div>
+            <div class="card-timing">PRIMEIROS 90 DIAS</div>
+            <div class="card-title">Evoluir</div>
+            <div class="card-text">
+              Acompanhamento dedicado pós-lançamento, suporte prioritário e evolução contínua alinhada ao feedback real do dia a dia da agência.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div>Mapeamos a operação, adaptamos a base validada, implantamos com a equipe e acompanhamos os primeiros 90 dias.</div>
+        <div class="nav-controls">
+          <span>Slide 4 de 6</span>
+          <button class="nav-btn" onclick="prevSlide()">❮</button>
+          <button class="nav-btn" onclick="nextSlide()">❯</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: INVESTIMENTO -->
+    <div class="slide" data-slide="5">
+      <div class="slide-header">
+        <div class="category-badge">Condições Comerciais</div>
+        <h2 class="slide-title">Investimento e Escopo do Plano Essencial</h2>
+        <p class="slide-subtitle">Transparência total e escopo fechado para modernização completa do backoffice de mídia.</p>
+      </div>
+      <div class="slide-content">
+        <div class="grid-2-unequal">
+          <div class="glass-card">
+            <div style="font-size: 15px; font-weight: 700; color: var(--gold); margin-bottom: 14px; text-transform: uppercase;">
+              O que está incluído no investimento:
+            </div>
+            <ul class="feature-list">
+              <li class="feature-item"><span class="check-icon">✓</span> <span><strong>Licença de uso</strong> do Plano Essencial da plataforma IArandú.</span></li>
+              <li class="feature-item"><span class="check-icon">✓</span> <span><strong>Diagnóstico aprofundado</strong> e configuração inicial completa de fluxos.</span></li>
+              <li class="feature-item"><span class="check-icon">✓</span> <span><strong>Customização do fluxo</strong> e regras acordadas no diagnóstico.</span></li>
+              <li class="feature-item"><span class="check-icon">✓</span> <span><strong>Migração assistida</strong> dos dados definidos no escopo de implantação.</span></li>
+              <li class="feature-item"><span class="check-icon">✓</span> <span><strong>Treinamento prático</strong> da equipe e ambiente exclusivo de homologação.</span></li>
+              <li class="feature-item"><span class="check-icon">✓</span> <span><strong>Monitoramento técnico</strong> e acompanhamento dedicado por 90 dias.</span></li>
+            </ul>
+          </div>
+          <div class="price-box">
+            <div style="font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 1px; text-transform: uppercase;">Investimento Total</div>
+            <div class="price-val">R$ 35.000</div>
+            <div style="font-size: 13px; font-weight: 600; color: var(--gold); margin-bottom: 12px;">PLANO ESSENCIAL</div>
+            <div style="font-size: 12px; color: var(--muted); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; text-align: left;">
+              • Condições de pagamento definidas na formalização comercial.<br>
+              • Validade da proposta: 15 dias a partir da apresentação.<br>
+              • Início imediato após assinatura de contrato e alinhamento.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div>Observação: Módulos adicionais ou integrações externas serão orçados separadamente caso demandados.</div>
+        <div class="nav-controls">
+          <span>Slide 5 de 6</span>
+          <button class="nav-btn" onclick="prevSlide()">❮</button>
+          <button class="nav-btn" onclick="nextSlide()">❯</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: PRÓXIMO PASSO & CONTATO -->
+    <div class="slide" data-slide="6">
+      <div class="slide-header">
+        <div class="category-badge">Próximo Passo</div>
+        <h2 class="slide-title">Demonstração ao Vivo e Alinhamento de Escopo</h2>
+        <p class="slide-subtitle">Convite para apresentação prática e validação das necessidades da Yaya Comunicação.</p>
+      </div>
+      <div class="slide-content">
+        <div class="glass-card" style="border-color: var(--blue); margin-bottom: 20px;">
+          <div style="font-size: 16px; font-weight: 700; color: var(--gold); margin-bottom: 8px;">
+            📅 REUNIÃO DE APRESENTAÇÃO VIA GOOGLE MEET (30 MINUTOS)
+          </div>
+          <p style="font-size: 14px; color: #f1f5f9; line-height: 1.6; margin-bottom: 12px;">
+            Convidamos você e sua liderança de mídia e operações para uma conversa prática de 30 minutos. Vamos demonstrar a esteira do IArandú funcionando ao vivo e esclarecer como estruturaremos a implantação na Yaya.
+          </p>
+          <div style="font-size: 13px; color: var(--muted);">
+            🔗 <strong>Ambiente de Demonstração Interativo:</strong> <a href="https://demonstracao.iarandu.com.br/login" target="_blank" style="color: var(--blue); text-decoration: none;">demonstracao.iarandu.com.br/login</a>
+          </div>
+        </div>
+
+        <div class="grid-2-unequal">
+          <div class="glass-card">
+            <div style="font-size: 17px; font-weight: 700; color: #ffffff;">Diego Maldonado</div>
+            <div style="font-size: 13px; color: var(--muted); margin-bottom: 10px;">Fundador &amp; CEO · IArandú Tecnologia</div>
+            <div style="font-size: 13px; color: #e2e8f0; line-height: 1.6;">
+              📞 WhatsApp / Tel: <strong>(41) 99813-6312</strong><br>
+              ✉️ E-mail Direto: <strong>contato@iarandu.com.br</strong><br>
+              🌐 Site Institucional: <strong>www.iarandu.com.br</strong>
+            </div>
+          </div>
+          <div class="glass-card" style="justify-content: center; align-items: center; text-align: center;">
+            <div style="font-size: 14px; font-weight: 700; color: var(--gold); margin-bottom: 6px;">Siga Nossos Canais</div>
+            <div style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">Acompanhe novidades e cases no Instagram:</div>
+            <a href="https://www.instagram.com/iarandu.br" target="_blank" style="display: inline-block; padding: 8px 18px; border-radius: 20px; background: rgba(59,130,246,0.15); border: 1px solid var(--blue); color: #fff; font-weight: 700; font-size: 13px; text-decoration: none;">
+              📸 @iarandu.br
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">
+        <div>IArandú Tecnologia · Curitiba - PR · Proposta Comercial Confidencial</div>
+        <div class="nav-controls">
+          <span>Slide 6 de 6</span>
+          <button class="nav-btn" onclick="prevSlide()">❮</button>
+          <button class="nav-btn" onclick="nextSlide()" disabled style="opacity: 0.4;">❯</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 6;
+
+    function showSlide(n) {
+      if (n < 1) n = 1;
+      if (n > totalSlides) n = totalSlides;
+      currentSlide = n;
+
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      const active = document.querySelector(`.slide[data-slide="${currentSlide}"]`);
+      if (active) active.classList.add('active');
+
+      const progress = (currentSlide / totalSlides) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) showSlide(currentSlide - 1);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        showSlide(1);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        showSlide(totalSlides);
+      }
+    });
+  </script>
+</body>
+</html>
