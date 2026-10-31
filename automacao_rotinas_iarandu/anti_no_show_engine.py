@@ -28,7 +28,10 @@ try:
 except Exception:
     pass
 
-import httpx
+try:
+    import httpx
+except ImportError:
+    import requests as httpx
 from config import (
     CENTRAL_DB,
     AGENCIAS_DB,
