@@ -1342,6 +1342,17 @@
                 <p style="font-size: 16px; color: var(--text-mute); line-height: 1.6;">
                     Valores transparentes desenhados para viabilizar operações que gerenciam contratos públicos e privados de mídia no Paraná. Sem custos ocultos.
                 </p>
+                <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+                    <a href="{{ asset('docs/Proposta_Comercial_IArandu_Essencial_e_Full.pdf') }}" target="_blank" class="arandu-chip" style="text-decoration: none; color: var(--accent); border-color: var(--accent); padding: 8px 16px; font-weight: 600; font-size: 13px; transition: all 0.2s ease;">
+                        📄 Baixar Proposta Comercial Oficial (PDF)
+                    </a>
+                    <a href="{{ asset('docs/Apresentacao_Executiva_IArandu.pdf') }}" target="_blank" class="arandu-chip" style="text-decoration: none; color: var(--text); padding: 8px 16px; font-weight: 600; font-size: 13px; transition: all 0.2s ease;">
+                        📊 Apresentação Executiva
+                    </a>
+                    <a href="{{ asset('docs/Estudo_de_Caso_Trade_Marketing.pdf') }}" target="_blank" class="arandu-chip" style="text-decoration: none; color: var(--text); padding: 8px 16px; font-weight: 600; font-size: 13px; transition: all 0.2s ease;">
+                        🏆 Estudo de Caso Trade Marketing
+                    </a>
+                </div>
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; align-items: stretch;">

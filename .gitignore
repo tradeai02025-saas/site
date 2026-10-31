@@ -19,3 +19,22 @@ yarn-error.log
 
 database/*.sqlite
 
+# Python & Local Temp / Caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.lock
+*.lock.*
+*.bak*
+*.stale*
+*token*.txt
+scratch_*.json
+brasilapi_cache.json
+slides_preview/
+evidencias/
+**/evidencias/
+chrome-qa-*/
+**/chrome-qa-*/
+
+
+
