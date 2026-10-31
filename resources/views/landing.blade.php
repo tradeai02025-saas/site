@@ -1342,11 +1342,6 @@
                 <p style="font-size: 16px; color: var(--text-mute); line-height: 1.6;">
                     Valores transparentes desenhados para viabilizar operações que gerenciam contratos públicos e privados de mídia no Paraná. Sem custos ocultos.
                 </p>
-                <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
-                    <a href="https://wa.me/5541998136312?text=Ol%C3%A1%20Diego,%20gostaria%20de%20solicitar%20a%20Apresenta%C3%A7%C3%A3o%20Executiva%20e%20o%20Estudo%20de%20Caso%20confidencial%20da%20IArand%C3%BA" target="_blank" rel="noopener" class="arandu-chip" style="text-decoration: none; color: var(--accent); border-color: var(--accent); padding: 10px 20px; font-weight: 700; font-size: 13.5px; background: rgba(194, 141, 68, 0.08); transition: all 0.2s ease;">
-                        🔒 Solicitar Apresentação Executiva &amp; Estudo de Caso (Acesso Restrito para Diretores) →
-                    </a>
-                </div>
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; align-items: stretch;">
