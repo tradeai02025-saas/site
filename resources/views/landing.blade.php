@@ -1343,14 +1343,8 @@
                     Valores transparentes desenhados para viabilizar operações que gerenciam contratos públicos e privados de mídia no Paraná. Sem custos ocultos.
                 </p>
                 <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
-                    <a href="{{ asset('docs/Proposta_Comercial_IArandu_Essencial_e_Full.pdf') }}" target="_blank" class="arandu-chip" style="text-decoration: none; color: var(--accent); border-color: var(--accent); padding: 8px 16px; font-weight: 600; font-size: 13px; transition: all 0.2s ease;">
-                        📄 Baixar Proposta Comercial Oficial (PDF)
-                    </a>
-                    <a href="{{ asset('docs/Apresentacao_Executiva_IArandu.pdf') }}" target="_blank" class="arandu-chip" style="text-decoration: none; color: var(--text); padding: 8px 16px; font-weight: 600; font-size: 13px; transition: all 0.2s ease;">
-                        📊 Apresentação Executiva
-                    </a>
-                    <a href="{{ asset('docs/Estudo_de_Caso_Trade_Marketing.pdf') }}" target="_blank" class="arandu-chip" style="text-decoration: none; color: var(--text); padding: 8px 16px; font-weight: 600; font-size: 13px; transition: all 0.2s ease;">
-                        🏆 Estudo de Caso Trade Marketing
+                    <a href="https://wa.me/5541998136312?text=Ol%C3%A1%20Diego,%20gostaria%20de%20solicitar%20a%20Apresenta%C3%A7%C3%A3o%20Executiva%20e%20o%20Estudo%20de%20Caso%20confidencial%20da%20IArand%C3%BA" target="_blank" rel="noopener" class="arandu-chip" style="text-decoration: none; color: var(--accent); border-color: var(--accent); padding: 10px 20px; font-weight: 700; font-size: 13.5px; background: rgba(194, 141, 68, 0.08); transition: all 0.2s ease;">
+                        🔒 Solicitar Apresentação Executiva &amp; Estudo de Caso (Acesso Restrito para Diretores) →
                     </a>
                 </div>
             </div>
